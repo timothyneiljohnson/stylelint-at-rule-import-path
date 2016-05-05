@@ -43,7 +43,6 @@ module.exports = stylelint.createPlugin(ruleName, (enabled, options) =>
 
       if (enabled && (!hasOptions || (hasOptions && !opts.allowUnderscore)) &&
         fileName.substring(0, 1) === '_') {
-        console.log(fileName);
         stylelint.utils.report({
           ruleName: ruleName,
           result: result,
@@ -53,7 +52,6 @@ module.exports = stylelint.createPlugin(ruleName, (enabled, options) =>
       }
       if (enabled && (!hasOptions || (hasOptions && !opts.allowExtension)) &&
         fileName.indexOf('.') > -1) {
-        console.log(fileName);
         stylelint.utils.report({
           ruleName: ruleName,
           result: result,
