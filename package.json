@@ -1,6 +1,6 @@
 {
   "name": "stylelint-at-rule-import-path",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A custom stylelint rule to catch usage of `@import` statement files beginning with underscores or end in filename extensions.",
   "main": "index.js",
   "scripts": {
