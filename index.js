@@ -2,7 +2,7 @@
 
 const assign = require('object-assign');
 const stylelint = require('stylelint');
-const ruleName = 'at-rule-import-path';
+const ruleName = 'plugin/at-rule-import-path';
 const messages = stylelint.utils.ruleMessages(ruleName, {
   rejectedUnderscore: 'Avoid leading underscores in import statements',
   rejectedExtension: 'Avoid file extensions in import statements'
