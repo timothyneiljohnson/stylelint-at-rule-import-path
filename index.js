@@ -5,7 +5,8 @@ const stylelint = require('stylelint');
 const ruleName = 'at-rule-import-path';
 const messages = stylelint.utils.ruleMessages(ruleName, {
   rejectedUnderscore: 'Avoid leading underscores in import statements',
-  rejectedExtension: 'Avoid file extensions in import statements'
+  rejectedExtension: 'Avoid file extensions in import statements',
+  rejectedCssImports: 'Avoid .css extension in import statements'
 });
 
 const arrayContains = (searchItem, array) =>
@@ -22,7 +23,8 @@ module.exports = stylelint.createPlugin(ruleName, (enabled, options) =>
       actual: options,
       possible: {
         allowUnderscore: [true, false],
-        allowExtension: [true, false]
+        allowExtension: [true, false],
+        allowCssImports: [true, false]
       },
       optional: true
     });
@@ -52,6 +54,15 @@ module.exports = stylelint.createPlugin(ruleName, (enabled, options) =>
       }
       if (enabled && (!hasOptions || (hasOptions && !opts.allowExtension)) &&
         fileName.indexOf('.') > -1) {
+        stylelint.utils.report({
+          ruleName: ruleName,
+          result: result,
+          node: atRule,
+          message: messages.rejectedExtension
+        });
+      }
+      if (enabled && (!hasOptions || (hasOptions && !opts.allowCssImports)) &&
+        fileName.indexOf('.css') > -1) {
         stylelint.utils.report({
           ruleName: ruleName,
           result: result,
