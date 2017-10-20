@@ -67,7 +67,7 @@ module.exports = stylelint.createPlugin(ruleName, (enabled, options) =>
           ruleName: ruleName,
           result: result,
           node: atRule,
-          message: messages.rejectedExtension
+          message: messages.rejectedCssImports
         });
       }
     };
